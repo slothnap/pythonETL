@@ -2,8 +2,7 @@
 
 import DbConfig as dbConf
 import pandas as pd
-#import openpyxl import Workbook
-#import openpyxl import load_workbook
+from openpyxl import load_workbook
 
 
 
@@ -26,11 +25,22 @@ if __name__ == '__main__':
            )
 
     # DataFrame으로 만들기
-    df = pd.DataFrame(AppDB.select(sql))
-    print(df)
+    #df = pd.DataFrame(AppDB.select(sql))
+    #print(df)
 
     # 테이블 별로 시트 저장
     # with pd.ExcelWriter('C:/Users/ChoiYouJin/Desktop/ce1.xlsx') as writer:
     #     for name in df.table_name:
     #         df[df.table_name == f'{name}'].to_excel(writer, sheet_name=f'{name}')
+
+    load_wb = load_workbook("C:/Users/ChoiYouJin/Desktop/업무/8. 요일별/인덱스정의서_템플릿.xlsx")
+    load_ws = load_wb['ord_order']
+
+    all_values = []
+    for row in load_ws.rows:
+        row_value = []
+        for cell in row:
+            row_value.append(cell.value)
+        all_values.append(row_value)
+    print(all_values)
 
