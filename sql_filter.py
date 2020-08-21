@@ -20,7 +20,7 @@ def filter_sql(file_location):
         if print_on == 1:
             if val.find("param1") > 0:
                 #list.append(val.lstrip())
-                list.append('')
+                list.append(' ')
                 print_on = 0
             else:
                 list.append(val)

@@ -11,13 +11,16 @@ write_file = "C:/Users/ChoiYouJin/Desktop/업무/8. 요일별/result.sql"
 list = sql_filter.filter_sql(read_file)
 
 
-for v in range(0, len(list)):
-    print(str(v)+": "+list[v])
+# DB에 넣기
+# insert_mdm.insertdata(list)
 
 
-# write 파일에 옮기기
-# f_write = open(write_file, "w")
-# for temp in list:
-#     f_write.write(temp)
-#
-# f_write.close()
+# 결과 보기
+f_write = open(write_file, "w")
+for temp in list:
+    f_write.write(temp)
+
+f_write.close()
+
+
+
