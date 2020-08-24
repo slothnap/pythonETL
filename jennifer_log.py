@@ -1,26 +1,19 @@
 # python jennifer_log.py
 
 import sql_filter
-import insert_mdm
-
-# 파일 위치
-read_file  = "C:/Users/ChoiYouJin/Desktop/업무/8. 요일별/test.sql"
-write_file = "C:/Users/ChoiYouJin/Desktop/업무/8. 요일별/result.sql"
-
-# 출력 받은 배열
-list = sql_filter.filter_sql(read_file)
 
 
-# DB에 넣기
-# insert_mdm.insertdata(list)
+if __name__ == '__main__':
+    # 파일 위치
+    read_file  = "C:/Users/ChoiYouJin/Desktop/업무/8. 요일별/jannifer_log.sql"   # jannifer_log ,test
+    write_file = "C:/Users/ChoiYouJin/Desktop/업무/8. 요일별/result.sql"
+    sql_file   = "C:/Users/ChoiYouJin/Desktop/업무/8. 요일별/sql_list.sql"
 
 
-# 결과 보기
-f_write = open(write_file, "w")
-for temp in list:
-    f_write.write(temp)
+    # 제니퍼 로그 데이터 1차 가공
+    #sql_filter.filter_sql(read_file, write_file)
 
-f_write.close()
-
+    # 제니퍼 로그 데이터 2차 가공 및 DB 삽입
+    sql_filter.manufacturing_sql(sql_file)
 
 
